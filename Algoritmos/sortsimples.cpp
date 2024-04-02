@@ -9,7 +9,7 @@
         cin >> a >> b >> c;
         vector<int> sort_simples = {a,b,c};
         vector<int> sort_original = sort_simples;
-        for(auto it = sort_simples.begin(); it != sort_simples.end(); it++){
+        for(auto it = sort_simples.begin(); it != sort_simples.end()-1; it++){
             int current = *it;
             int next_value = *next(it);
             if(*next(it)<*it)
@@ -21,10 +21,10 @@
 
         }
         // Reverse pointer
-        for(auto it = sort_simples.end(); it != sort_simples.begin(); it--){
+        for(auto it = sort_simples.end()-1; it != sort_simples.begin(); it--){
             int current = *it;
             int previous_value = *prev(it);
-            if(*prev(it)>*it && prev(it)!=sort_simples.end())
+            if(*prev(it)>*it)
             {
                 *prev(it) =  current;
                 *it = previous_value;
