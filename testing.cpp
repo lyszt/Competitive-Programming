@@ -5,34 +5,28 @@
 
     int main() {
         using namespace std;
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> sort_simples = {a,b,c};
-        vector<int> sort_original = sort_simples;
-        for(auto it = sort_simples.begin(); it != sort_simples.end(); it++){
-            int current = *it;
-            int next_value = *next(it);
-            if(*next(it)<*it)
-            {
-                *next(it) =  current;
-                *it = next_value;
+        int a,b;
+        int x,y;
+        while(cin >> a >> b)
+        {
+            if(a == 0 && b == 0){break;}
+            vector points(2,0);
+            for(int i = 0; i <= a + b; i++) {
+                if(a <= i) {
+                    cin >> x;
+                }
+                if(b <= i) {
+                    cin >> y;
+                }
+                if(x > y) {
+                    points[0] += 1;
+                } else if(x < y) {
+                    points[1] += 1;
+                }
 
             }
-
+            cout << points[0] << " " << points[1] << endl;
         }
-        // Reverse pointer
-        for(auto it = sort_simples.end(); it != sort_simples.begin(); it--){
-            int current = *it;
-            int previous_value = *prev(it);
-            if(*prev(it)>*it && prev(it)!=sort_simples.end())
-            {
-                *prev(it) =  current;
-                *it = previous_value;
-
-            }
-        }
-        printf("%i\n%i\n%i\n\n", sort_simples[0],sort_simples[1],sort_simples[2]);
-        printf("%i\n%i\n%i\n", sort_original[0],sort_original[1],sort_original[2]);
     }
 
 
